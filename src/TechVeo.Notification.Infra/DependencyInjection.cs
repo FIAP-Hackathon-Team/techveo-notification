@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using TechVeo.Notification.Application.Services;
 using TechVeo.Notification.Infra.Services;
+using TechVeo.Shared.Infra.Extensions;
 
 namespace TechVeo.Notification.Infra;
 

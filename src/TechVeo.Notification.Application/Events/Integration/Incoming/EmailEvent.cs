@@ -5,7 +5,7 @@ namespace TechVeo.Notification.Application.Events.Integration.Incoming
 {
     public record EmailEvent(
         string EmailAddress,
-        string FileName, 
+        string FileName,
         StatusType Status,
         string S3Url
         ) : IIntegrationEvent;

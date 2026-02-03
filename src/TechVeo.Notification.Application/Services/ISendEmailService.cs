@@ -4,5 +4,5 @@ namespace TechVeo.Notification.Application.Services;
 
 public interface ISendEmailService
 {
-    Task SendEmailAsync(string toAddress, string subject, string bodyHtml);
+    Task SendAsync(string toAddress, string subject, string bodyHtml);
 }

@@ -17,7 +17,7 @@ public class SendEmailService : ISendEmailService
         _logger = logger;
     }
 
-    public async Task SendEmailAsync(string toAddress, string subject, string bodyHtml)
+    public async Task SendAsync(string toAddress, string subject, string bodyHtml)
     {
         var fromAddress = "seu-email@verificado.com";
 

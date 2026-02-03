@@ -7,10 +7,17 @@ using TechVeo.Notification.Application.Services;
 
 namespace TechVeo.Notification.Application.Events.Integration.Incoming.Handlers;
 
-internal class ProcessEmailEventHandler(
-    ISendEmailService videoProcessingService,
-    ILogger<ProcessEmailEventHandler> logger) : INotificationHandler<EmailEvent>
+internal class ProcessEmailEventHandler : INotificationHandler<EmailEvent>
 {
+    private readonly ILogger _logger;
+    private readonly ISendEmailService _sendEmailService;
+    public ProcessEmailEventHandler(ISendEmailService sendEmailService,
+        ILogger<ProcessEmailEventHandler> logger)
+    {
+        _sendEmailService = sendEmailService;
+        _logger = logger;
+    }
+
     public async Task Handle(EmailEvent @event, CancellationToken cancellationToken)
     {
         var subject = "Teste de Email via AWS SES e C#";
@@ -19,6 +26,6 @@ internal class ProcessEmailEventHandler(
             .Replace("{{video_name}}", @event.FileName)
             .Replace("{{download_link}}", @event.S3Url);
 
-        await videoProcessingService.SendEmailAsync(@event.EmailAddress, subject, bodyHtml);
+        await _sendEmailService.SendAsync(@event.EmailAddress, subject, bodyHtml);
     }
 }
