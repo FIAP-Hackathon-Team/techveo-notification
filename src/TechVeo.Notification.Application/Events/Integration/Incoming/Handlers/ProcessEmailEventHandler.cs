@@ -7,7 +7,7 @@ using TechVeo.Notification.Application.Services;
 
 namespace TechVeo.Notification.Application.Events.Integration.Incoming.Handlers;
 
-internal class ProcessEmailEventHandler : INotificationHandler<EmailEvent>
+public class ProcessEmailEventHandler : INotificationHandler<EmailEvent>
 {
     private readonly ILogger _logger;
     private readonly ISendEmailService _sendEmailService;

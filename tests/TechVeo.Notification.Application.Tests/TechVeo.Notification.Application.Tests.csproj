@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\TechVeo.Processing.Application\TechVeo.Processing.Application.csproj" />
-    <ProjectReference Include="..\..\src\TechVeo.Processing.Infra\TechVeo.Processing.Infra.csproj" />
+    <ProjectReference Include="..\..\src\TechVeo.Notification.Application\TechVeo.Notification.Application.csproj" />
+    <ProjectReference Include="..\..\src\TechVeo.Notification.Infra\TechVeo.Notification.Infra.csproj" />
   </ItemGroup>
 
   <ItemGroup>
