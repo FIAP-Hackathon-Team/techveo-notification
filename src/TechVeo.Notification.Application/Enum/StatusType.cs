@@ -2,6 +2,6 @@ namespace TechVeo.Notification.Application.Enum;
 
 public enum StatusType
 {
-    Success,
-    Error
+    Completed = 2,
+    Failed = 3
 }
