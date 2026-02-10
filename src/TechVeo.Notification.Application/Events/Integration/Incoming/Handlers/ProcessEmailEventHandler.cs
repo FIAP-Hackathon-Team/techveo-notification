@@ -23,13 +23,10 @@ public class ProcessEmailEventHandler : INotificationHandler<EmailEvent>
     {
         var subject = "Teste de Email via AWS SES e C#";
 
-        var bodyHtml = @event.Status == Enum.StatusType.Completed
-    ? Templates.Success
-        .Replace("{{video_name}}", @event.FileName)
-        .Replace("{{download_link}}", @event.Url)
-    : Templates.Failed
-        .Replace("{{video_name}}", @event.FileName)
-        .Replace("{{retry_link}}", "https://seusite.com/upload");
+        var bodyHtml = @event.Status == Enum.StatusType.Completed ? Templates.Success : Templates.Failed;
+
+        bodyHtml.Replace("{{video_name}}", @event.FileName)
+        .Replace("{{retry_link}}", @event.Url);
 
         await _sendEmailService.SendAsync(@event.EmailAddress, subject, bodyHtml);
     }

@@ -17,7 +17,10 @@ public class SendEmailService : ISendEmailService
     private readonly AmazonSimpleEmailServiceClient _client;
     private readonly string _fromAddress;
 
-    public SendEmailService(ILogger<SendEmailService> logger, IOptions<AwsOptions> awsOptions, IConfiguration configuration)
+    public SendEmailService(
+        ILogger<SendEmailService> logger,
+        IOptions<AwsOptions> awsOptions,
+        IConfiguration configuration)
     {
         _logger = logger;
 
