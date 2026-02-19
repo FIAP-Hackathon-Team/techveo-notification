@@ -15,6 +15,8 @@ ARG GITHUB_ACTOR
 WORKDIR /src
 COPY ["src/TechVeo.Notification.Worker/TechVeo.Notification.Worker.csproj", "TechVeo.Notification.Worker/"]
 COPY ["src/TechVeo.Notification.Application/TechVeo.Notification.Application.csproj", "TechVeo.Notification.Application/"]
+COPY ["src/TechVeo.Notification.Domain/TechVeo.Notification.Domain.csproj", "TechVeo.Notification.Domain/"]
+COPY ["src/TechVeo.Notification.Contracts/TechVeo.Notification.Contracts.csproj", "TechVeo.Notification.Contracts/"]
 COPY ["src/TechVeo.Notification.Infra/TechVeo.Notification.Infra.csproj", "TechVeo.Notification.Infra/"]
 RUN dotnet nuget add source --username "${GITHUB_ACTOR}" --password "${GITHUB_TOKEN}" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/FIAP-Hackathon-Team/index.json"
 RUN dotnet restore "./TechVeo.Notification.Worker/TechVeo.Notification.Worker.csproj"

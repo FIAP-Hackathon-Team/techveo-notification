@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
@@ -23,6 +24,10 @@
   
   <ItemGroup>
     <PackageReference Include="TechVeo.Shared.Application" Version="2.0.8-rc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TechVeo.Notification.Domain\TechVeo.Notification.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
