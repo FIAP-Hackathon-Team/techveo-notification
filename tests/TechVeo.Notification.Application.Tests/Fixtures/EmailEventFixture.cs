@@ -5,34 +5,34 @@ namespace TechVeo.Notification.Application.Tests.Fixtures;
 
 public class EmailEventFixture
 {
-    public EmailEvent CreateCompletedEmailEvent(
+    public SendEmailEvent CreateCompletedEmailEvent(
         string emailAddress = "user@example.com",
         string fileName = "test-video.mp4",
         string url = "https://example.com/video/123")
     {
-        return new EmailEvent(emailAddress, fileName, StatusType.Completed, url);
+        return new SendEmailEvent(emailAddress, fileName, StatusType.Completed, url);
     }
 
-    public EmailEvent CreateFailedEmailEvent(
+    public SendEmailEvent CreateFailedEmailEvent(
         string emailAddress = "user@example.com",
         string fileName = "test-video.mp4",
         string url = "https://example.com/video/123")
     {
-        return new EmailEvent(emailAddress, fileName, StatusType.Failed, url);
+        return new SendEmailEvent(emailAddress, fileName, StatusType.Failed, url);
     }
 
-    public EmailEvent CreateEmailEventWithCustomData(
+    public SendEmailEvent CreateEmailEventWithCustomData(
         string emailAddress,
         string fileName,
         StatusType status,
         string url)
     {
-        return new EmailEvent(emailAddress, fileName, status, url);
+        return new SendEmailEvent(emailAddress, fileName, status, url);
     }
 
-    public List<EmailEvent> CreateMultipleEmailEvents(int count)
+    public List<SendEmailEvent> CreateMultipleEmailEvents(int count)
     {
-        var events = new List<EmailEvent>();
+        var events = new List<SendEmailEvent>();
         for (int i = 0; i < count; i++)
         {
             events.Add(CreateCompletedEmailEvent(

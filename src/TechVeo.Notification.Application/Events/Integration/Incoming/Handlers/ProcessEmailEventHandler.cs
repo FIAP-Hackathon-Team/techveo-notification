@@ -1,32 +1,44 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using TechVeo.Notification.Application.Resources;
 using TechVeo.Notification.Application.Services;
 
 namespace TechVeo.Notification.Application.Events.Integration.Incoming.Handlers;
 
-public class ProcessEmailEventHandler : INotificationHandler<EmailEvent>
+public class ProcessEmailEventHandler : INotificationHandler<SendEmailEvent>
 {
     private readonly ILogger _logger;
     private readonly ISendEmailService _sendEmailService;
 
     public ProcessEmailEventHandler(ISendEmailService sendEmailService,
-        ILogger<ProcessEmailEventHandler> logger)
+        ILogger<ProcessEmailEventHandler> logger,
+        IConfiguration config)
     {
         _sendEmailService = sendEmailService;
         _logger = logger;
     }
 
-    public async Task Handle(EmailEvent @event, CancellationToken cancellationToken)
+    public async Task Handle(SendEmailEvent @event, CancellationToken cancellationToken)
     {
         var subject = "Teste de Email via AWS SES e C#";
 
         var bodyHtml = @event.Status == Enum.StatusType.Completed ? Templates.Success : Templates.Failed;
 
-        bodyHtml.Replace("{{video_name}}", @event.FileName)
-        .Replace("{{retry_link}}", @event.Url);
+        if (@event.Status == Enum.StatusType.Completed)
+        {
+            bodyHtml = bodyHtml
+                .Replace("{{video_name}}", @event.FileName)
+                .Replace("{{download_link}}", @event.Url);
+        }
+        else
+        {
+            bodyHtml = bodyHtml
+                .Replace("{{video_name}}", @event.FileName)
+                .Replace("{{retry_link}}", @event.Url);
+        }
 
         await _sendEmailService.SendAsync(@event.EmailAddress, subject, bodyHtml);
     }

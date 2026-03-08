@@ -30,7 +30,7 @@ public class ProcessEmailEventHandlerTests
         var emailAddress = "user@example.com";
         var fileName = "test-video.mp4";
         var url = "https://example.com/video/123";
-        var emailEvent = new EmailEvent(emailAddress, fileName, StatusType.Completed, url);
+        var emailEvent = new SendEmailEvent(emailAddress, fileName, StatusType.Completed, url);
 
         _sendEmailServiceMock
             .Setup(x => x.SendAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
@@ -56,7 +56,7 @@ public class ProcessEmailEventHandlerTests
         var emailAddress = "user@example.com";
         var fileName = "test-video.mp4";
         var url = "https://example.com/video/123";
-        var emailEvent = new EmailEvent(emailAddress, fileName, StatusType.Failed, url);
+        var emailEvent = new SendEmailEvent(emailAddress, fileName, StatusType.Failed, url);
 
         _sendEmailServiceMock
             .Setup(x => x.SendAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
@@ -79,7 +79,7 @@ public class ProcessEmailEventHandlerTests
     public async Task Handle_ShouldSendEmailWithCorrectSubject()
     {
         // Arrange
-        var emailEvent = new EmailEvent(
+        var emailEvent = new SendEmailEvent(
             "user@example.com",
             "test-video.mp4",
             StatusType.Completed,
@@ -106,7 +106,7 @@ public class ProcessEmailEventHandlerTests
     public async Task Handle_ShouldCallSendAsyncOnce()
     {
         // Arrange
-        var emailEvent = new EmailEvent(
+        var emailEvent = new SendEmailEvent(
             "user@example.com",
             "test-video.mp4",
             StatusType.Completed,
@@ -130,7 +130,7 @@ public class ProcessEmailEventHandlerTests
     public async Task Handle_WithEmptyFileName_ShouldSendEmailSuccessfully()
     {
         // Arrange
-        var emailEvent = new EmailEvent(
+        var emailEvent = new SendEmailEvent(
             "user@example.com",
             string.Empty,
             StatusType.Completed,
@@ -154,7 +154,7 @@ public class ProcessEmailEventHandlerTests
     public async Task Handle_WithEmptyUrl_ShouldSendEmailSuccessfully()
     {
         // Arrange
-        var emailEvent = new EmailEvent(
+        var emailEvent = new SendEmailEvent(
             "user@example.com",
             "test-video.mp4",
             StatusType.Completed,

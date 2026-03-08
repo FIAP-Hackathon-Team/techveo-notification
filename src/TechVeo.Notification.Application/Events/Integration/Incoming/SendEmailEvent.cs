@@ -3,7 +3,7 @@ using TechVeo.Shared.Application.Events;
 
 namespace TechVeo.Notification.Application.Events.Integration.Incoming
 {
-    public record EmailEvent(
+    public record SendEmailEvent(
         string EmailAddress,
         string FileName,
         StatusType Status,
