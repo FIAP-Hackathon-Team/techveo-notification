@@ -39,7 +39,7 @@ public class SendEmailServiceTests
         // Assert
         service.Should().NotBeNull();
         _configurationMock.Verify(x => x["Email:FromAddress"], Times.Once);
-    }
+    } 
 
     [Fact(DisplayName = "Should read Password from configuration")]
     [Trait("Infra", "SendEmailService")]
