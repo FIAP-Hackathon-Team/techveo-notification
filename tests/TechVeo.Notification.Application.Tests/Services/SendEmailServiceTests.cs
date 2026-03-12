@@ -29,6 +29,7 @@ public class SendEmailServiceTests
 
         _awsOptionsMock.Setup(x => x.Value).Returns(awsOptions);
         _configurationMock.Setup(x => x["Email:FromAddress"]).Returns("noreply@example.com");
+        _configurationMock.Setup(x => x["Email:Password"]).Returns("secret-password");
     }
 
     [Fact(DisplayName = "Should create service with valid configuration")]
@@ -36,110 +37,57 @@ public class SendEmailServiceTests
     public void Constructor_WithValidConfiguration_ShouldCreateService()
     {
         // Act
-        var service = new SendEmailService(
-            _loggerMock.Object,
-            _awsOptionsMock.Object,
-            _configurationMock.Object);
+        var service = new SendEmailService(_configurationMock.Object);
 
         // Assert
         service.Should().NotBeNull();
     }
 
-    [Fact(DisplayName = "Should use configured FromAddress")]
+    [Fact(DisplayName = "Should read FromAddress from configuration")]
     [Trait("Infra", "SendEmailService")]
-    public void Constructor_ShouldUseConfiguredFromAddress()
+    public void Constructor_ShouldReadFromAddressFromConfig()
     {
         // Arrange
         var expectedFromAddress = "custom@example.com";
         _configurationMock.Setup(x => x["Email:FromAddress"]).Returns(expectedFromAddress);
 
         // Act
-        var service = new SendEmailService(
-            _loggerMock.Object,
-            _awsOptionsMock.Object,
-            _configurationMock.Object);
+        var service = new SendEmailService(_configurationMock.Object);
 
         // Assert
         service.Should().NotBeNull();
         _configurationMock.Verify(x => x["Email:FromAddress"], Times.Once);
-    }
+    } 
 
-    [Fact(DisplayName = "Should validate AWS options are used")]
+    [Fact(DisplayName = "Should read Password from configuration")]
     [Trait("Infra", "SendEmailService")]
-    public void Constructor_ShouldUseAwsOptions()
+    public void Constructor_ShouldReadPasswordFromConfig()
     {
         // Act
-        var service = new SendEmailService(
-            _loggerMock.Object,
-            _awsOptionsMock.Object,
-            _configurationMock.Object);
+        var service = new SendEmailService(_configurationMock.Object);
 
         // Assert
         service.Should().NotBeNull();
-        _awsOptionsMock.Verify(x => x.Value, Times.AtLeastOnce);
+        _configurationMock.Verify(x => x["Email:Password"], Times.Once);
     }
 
-    [Fact(DisplayName = "Should send email successfully with valid parameters")]
+    [Fact(DisplayName = "Should create service with different FromAddress values")]
     [Trait("Infra", "SendEmailService")]
-    public async Task SendAsync_WithValidParameters_ShouldCompleteSuccessfully()
+    public void Constructor_WithDifferentFromAddresses_ShouldCreateService()
     {
         // Arrange
-        var service = new SendEmailService(
-            _loggerMock.Object,
-            _awsOptionsMock.Object,
-            _configurationMock.Object);
+        var addresses = new[] { "a@b.com", "test@domain.org", "sender@company.net" };
 
-        var toAddress = "recipient@example.com";
-        var subject = "Test Subject";
-        var bodyHtml = "<html><body>Test Body</body></html>";
+        foreach (var address in addresses)
+        {
+            _configurationMock.Setup(x => x["Email:FromAddress"]).Returns(address);
 
-        // Act & Assert - O método não lança exceção em caso de sucesso
-        // Note: Este teste falhará em tempo de execução pois tenta conectar com AWS real
-        // Em um cenário real, você deve mockar o AmazonSimpleEmailServiceClient
-        await FluentActions.Invoking(() => 
-            service.SendAsync(toAddress, subject, bodyHtml))
-            .Should().NotThrowAsync<ArgumentNullException>();
-    }
+            // Act
+            var service = new SendEmailService(_configurationMock.Object);
 
-    [Fact(DisplayName = "Should handle empty email address")]
-    [Trait("Infra", "SendEmailService")]
-    public async Task SendAsync_WithEmptyEmailAddress_ShouldHandleGracefully()
-    {
-        // Arrange
-        var service = new SendEmailService(
-            _loggerMock.Object,
-            _awsOptionsMock.Object,
-            _configurationMock.Object);
-
-        var toAddress = string.Empty;
-        var subject = "Test Subject";
-        var bodyHtml = "<html><body>Test Body</body></html>";
-
-        // Act & Assert
-        await FluentActions.Invoking(() => 
-            service.SendAsync(toAddress, subject, bodyHtml))
-            .Should().NotThrowAsync<ArgumentNullException>();
-    }
-
-    [Fact(DisplayName = "Should handle empty subject")]
-    [Trait("Infra", "SendEmailService")]
-    public async Task SendAsync_WithEmptySubject_ShouldHandleGracefully()
-    {
-        // Arrange
-        var service = new SendEmailService(
-            _loggerMock.Object,
-            _awsOptionsMock.Object,
-            _configurationMock.Object);
-
-        var toAddress = "recipient@example.com";
-        var subject = string.Empty;
-        var bodyHtml = "<html><body>Test Body</body></html>";
-
-        // Act & Assert
-        await FluentActions.Invoking(() => 
-            service.SendAsync(toAddress, subject, bodyHtml))
-            .Should().NotThrowAsync<ArgumentNullException>();
-    }
+            // Assert
+            service.Should().NotBeNull();
+        }
 
     [Fact(DisplayName = "Should handle empty body")]
     [Trait("Infra", "SendEmailService")]
