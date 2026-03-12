@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using TechVeo.Notification.Application.Events.Integration.Incoming;
 using TechVeo.Notification.Application.Events.Integration.Incoming.Handlers;
@@ -10,16 +11,19 @@ public class ProcessEmailEventHandlerTests
 {
     private readonly Mock<ISendEmailService> _sendEmailServiceMock;
     private readonly Mock<ILogger<ProcessEmailEventHandler>> _loggerMock;
+    private readonly Mock<IConfiguration> _configMock;
     private readonly ProcessEmailEventHandler _handler;
 
     public ProcessEmailEventHandlerTests()
     {
         _sendEmailServiceMock = new Mock<ISendEmailService>();
         _loggerMock = new Mock<ILogger<ProcessEmailEventHandler>>();
+        _configMock = new Mock<IConfiguration>();
 
         _handler = new ProcessEmailEventHandler(
             _sendEmailServiceMock.Object,
-            _loggerMock.Object);
+            _loggerMock.Object,
+            _configMock.Object);
     }
 
     [Fact(DisplayName = "Should send success email when status is Completed")]
