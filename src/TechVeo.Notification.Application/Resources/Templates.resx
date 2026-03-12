@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Failed" xml:space="preserve">
+    <value>&lt;div style='font-family:sans-serif;background-color:#0f1111;margin:0;padding:20px;color:#ffffff;'&gt;&lt;div style='max-width:600px;margin:0 auto;background-color:#1a1d1e;border-radius:12px;overflow:hidden;border:1px solid #442222;'&gt;&lt;div style='padding:30px;text-align:center;background-color:#121415;border-bottom:1px solid #333;'&gt;&lt;span style='font-size:24px;font-weight:bold;color:#ffffff;'&gt;🎥 TechVeo&lt;/span&gt;&lt;/div&gt;&lt;div style='padding:40px 30px;text-align:center;'&gt;&lt;div style='display:inline-block;padding:6px 16px;background-color:rgba(239,68,68,0.1);color:#ef4444;border:1px solid #ef4444;border-radius:20px;font-size:14px;margin-bottom:20px;'&gt;✕ Falha no Processamento&lt;/div&gt;&lt;h1 style='font-size:22px;margin-bottom:10px;color:#ef4444;'&gt;Ops! Algo deu errado.&lt;/h1&gt;&lt;p style='color:#a0a0a0;line-height:1.6;'&gt;Não conseguimos processar o seu vídeo. Verifique se o arquivo não está corrompido ou acesse o site para tentar um novo envio.&lt;/p&gt;&lt;div style='background-color:#2b1e1e;border-radius:8px;padding:15px;margin:25px 0;text-align:left;border-left:4px solid #ef4444;'&gt;&lt;span style='font-weight:bold;color:#ffffff;display:block;'&gt;{{video_name}}&lt;/span&gt;&lt;span style='font-size:12px;color:#ef4444;'&gt;Erro: Falha no processamento.&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style='padding:20px;text-align:center;font-size:12px;color:#555;background-color:#121415;'&gt;Suporte: admin@fdsf.com | &amp;copy; 2026 TechVeo.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>&lt;div style='font-family:sans-serif;background-color:#0f1111;margin:0;padding:20px;color:#ffffff;'&gt;&lt;div style='max-width:600px;margin:0 auto;background-color:#1a1d1e;border-radius:12px;overflow:hidden;border:1px solid #333;'&gt;&lt;div style='padding:30px;text-align:center;background-color:#121415;border-bottom:1px solid #333;'&gt;&lt;span style='font-size:24px;font-weight:bold;color:#ffffff;'&gt;🎥 TechVeo&lt;/span&gt;&lt;/div&gt;&lt;div style='padding:40px 30px;text-align:center;'&gt;&lt;div style='display:inline-block;padding:6px 16px;background-color:rgba(34,197,94,0.1);color:#22c55e;border:1px solid #22c55e;border-radius:20px;font-size:14px;margin-bottom:20px;'&gt;✓ Processamento Concluído&lt;/div&gt;&lt;h1 style='font-size:22px;margin-bottom:10px;'&gt;Tudo pronto!&lt;/h1&gt;&lt;p style='color:#a0a0a0;line-height:1.6;'&gt;Os snapshots do seu vídeo foram extraídos e organizados. Clique no botão abaixo para baixar o pacote completo.&lt;/p&gt;&lt;div style='background-color:#262a2b;border-radius:8px;padding:15px;margin:25px 0;text-align:left;border-left:4px solid #22c55e;'&gt;&lt;span style='font-weight:bold;color:#ffffff;display:block;'&gt;{{video_name}}&lt;/span&gt;&lt;span style='font-size:12px;color:#777;'&gt;Status: 100% Processado&lt;/span&gt;&lt;/div&gt;&lt;a href='{{download_link}}' style='display:inline-block;padding:14px 30px;background-color:#ffffff;color:#000000;text-decoration:none;border-radius:8px;font-weight:bold;margin-top:20px;'&gt;Baixar Arquivo ZIP&lt;/a&gt;&lt;/div&gt;&lt;div style='padding:20px;text-align:center;font-size:12px;color:#555;background-color:#121415;'&gt;&amp;copy; 2026 TechVeo. Todos os direitos reservados.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</value>
+  </data>
+</root>

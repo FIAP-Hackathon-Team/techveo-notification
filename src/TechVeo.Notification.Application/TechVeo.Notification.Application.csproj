@@ -1,0 +1,74 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Dto\**" />
+    <Compile Remove="Events\Domain\**" />
+    <Compile Remove="Storage\**" />
+    <EmbeddedResource Remove="Dto\**" />
+    <EmbeddedResource Remove="Events\Domain\**" />
+    <EmbeddedResource Remove="Storage\**" />
+    <None Remove="Dto\**" />
+    <None Remove="Events\Domain\**" />
+    <None Remove="Storage\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="TechVeo.Shared.Application" Version="2.0.8-rc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TechVeo.Notification.Domain\TechVeo.Notification.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="TechVeo.Notification.Application.Tests" />
+  </ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Resources\Templates.Designer.cs">
+	    <DependentUpon>Templates.resx</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	  <Compile Update="Resources\Exceptions.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Exceptions.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Validators.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Validators.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\Templates.resx">
+	    <LastGenOutput>Templates.Designer.cs</LastGenOutput>
+	    <Generator>ResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Exceptions.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Exceptions.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Validators.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Validators.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Events\Integration\Outgoing\" />
+	</ItemGroup>
+
+</Project>

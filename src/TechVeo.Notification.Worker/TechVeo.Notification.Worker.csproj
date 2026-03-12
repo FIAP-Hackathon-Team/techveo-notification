@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net8</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>ce813c32-edb4-47f2-98d3-d02261ab15c2</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TechVeo.Shared.Worker" Version="2.0.8-rc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TechVeo.Notification.Application\TechVeo.Notification.Application.csproj" />
+    <ProjectReference Include="..\TechVeo.Notification.Infra\TechVeo.Notification.Infra.csproj" />
+  </ItemGroup>
+
+</Project>
