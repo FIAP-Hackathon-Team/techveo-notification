@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="AWSSDK.SimpleEmail" Version="3.7.502.37" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
-    <PackageReference Include="TechVeo.Shared.Infra" Version="2.0.8-rc" />
+    <PackageReference Include="TechVeo.Shared.Infra" Version="2.0.10-rc" />
     <!--<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="9.0.3" />-->
   </ItemGroup>
 
